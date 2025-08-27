@@ -1,27 +1,24 @@
 def is_valid_number():
 
-    card_number = input("Enter a card number you want to check: ")
+    card_number = input("Enter a card number ##: ")
 
     card_number = card_number.replace("-", "")
     card_number = card_number.replace(" ", "")
 
-
-    card_number = card_number[:-1]
-
-    # Reverse Card Number after dropping Check digit
+    # Reverse Card Number
     rev_card_number = card_number[::-1]
 
     sum_odd_digits = 0
     sum_even_digits = 0
     for num  in rev_card_number[::2]:
-        num = int(num) * 2
-        if num > 9:
-            sum_odd_digits += (num - 9)
-        else:
-            sum_odd_digits += num
+          sum_odd_digits += int(num) 
 
     for num in rev_card_number[1::2]:
-          sum_even_digits += int(num)
+        num = int(num) * 2
+        if num > 9:
+            sum_even_digits += (num - 9)
+        else:
+            sum_even_digits += num
 
     total_sum = sum_odd_digits + sum_even_digits
 
